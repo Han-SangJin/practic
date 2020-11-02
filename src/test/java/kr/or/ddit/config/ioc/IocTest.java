@@ -1,4 +1,4 @@
-package kr.or.ddit.confing.ioc;
+package kr.or.ddit.config.ioc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +10,7 @@ import kr.or.ddit.board.service.BoardServiceI;
 
 public class IocTest {
 	private static final Logger logger = LoggerFactory.getLogger(IocTest.class);
-	
+		
 	public static void main(String[] args) {
 		// 스프링 빈 사용설명서를 사용하여 스프링 컨테이너를 생성
 		// 스프링 컨테이너로 : applicationContext

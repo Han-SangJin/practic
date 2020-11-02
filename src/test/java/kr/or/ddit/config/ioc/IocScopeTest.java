@@ -1,4 +1,4 @@
-package kr.or.ddit.confing.ioc;
+package kr.or.ddit.config.ioc;
 
 import static org.junit.Assert.*;
 
