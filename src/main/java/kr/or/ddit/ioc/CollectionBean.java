@@ -13,7 +13,6 @@ public class CollectionBean {
 	private Properties properties;
 	
 	
-	
 	public Map<String, String> getMap() {
 		return map;
 	}

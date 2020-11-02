@@ -5,6 +5,7 @@ public class BoardVo {
 	private String title;
 	private String content;
 	
+	
 	public BoardVo() {
 		
 	}
