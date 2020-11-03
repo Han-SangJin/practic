@@ -13,12 +13,20 @@
 	</encoder>
 </appender>
 	
-
+	
+	<!-- 로그를 확인해줄 페이지(패키지) 설정 -->
    <logger name="kr.or.ddit" level="debug">
        <appender-ref ref="STDOUT" />
    </logger> 
    
-    <root level="DEBUG">
+	   
+	<!-- 로그를 확인해줄 페이지(패키지) 설정 -->
+   <logger name="org.springframework" level="debug">
        <appender-ref ref="STDOUT" />
-   </root> 
+   </logger>
+   
+   
+  <!--   <root level="DEBUG">
+       <appender-ref ref="STDOUT" />
+   </root>  -->
 </configuration>

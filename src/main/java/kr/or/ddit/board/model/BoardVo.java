@@ -1,11 +1,13 @@
 package kr.or.ddit.board.model;
 
+import java.util.Date;
+
 public class BoardVo {
 	private int boardNo;
 	private String title;
 	private String content;
-	
-	
+
+
 	public BoardVo() {
 		
 	}
@@ -35,6 +37,7 @@ public class BoardVo {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	
 	
 	@Override
