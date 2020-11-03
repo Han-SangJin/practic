@@ -1,7 +1,10 @@
 package kr.or.ddit.board.repository;
 
+import org.springframework.stereotype.Repository;
+
 import kr.or.ddit.board.model.BoardVo;
 
+@Repository("boardRepository")	// xml파일에서 bean id="boardRepository" 와 같은 역할
 public class BoardRepository implements BoardRepositoryI{
 
 	@Override
