@@ -36,7 +36,4 @@ public class BoardService implements BoardServiceI{
 		return boardRepository.getBoard(boardNo);
 	}
 	
-	
-	
-	
 }

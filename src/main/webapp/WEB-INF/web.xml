@@ -13,9 +13,9 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-	<!-- 스프링 부모 컨테이너 생성 : service, repository -->
+<!-- 	 스프링 부모 컨테이너 생성 : service, repository 
 	<context-param>
-		<!-- 스프링 제공 contextConfigLocation -->
+		스프링 제공 contextConfigLocation
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:kr/or/ddit/config/spring/root-context.xml</param-value>
 	</context-param>
@@ -25,10 +25,10 @@
 	
 	
 	
-	<!-- 자식 컨테이너 설정 - dispatcherServlet을 통해 생성 : controller -->
-	<!-- 서블릿 설정     스프링 제공 dispatcherServlet -->
+	자식 컨테이너 설정 - dispatcherServlet을 통해 생성 : controller
+	서블릿 설정     스프링 제공 dispatcherServlet
 	<servlet>
-		<!-- 스프링 제공 dispatcherServlet -->
+		스프링 제공 dispatcherServlet
 		<servlet-name>dispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -38,11 +38,13 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
-	<!-- 서블릿 매핑 -->
+	
+	
+	서블릿 매핑   mvc:default 과 관련
 	<servlet-mapping>
 		<servlet-name>dispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	
 	 
 </web-app>

@@ -44,6 +44,23 @@
 
 
 
+	
+	<!-- 		Member		 -->	
+	
+	<!-- Dao 불러옴 -->
+	<bean id="memberDao" class="kr.or.ddit.member.dao.MemberDao"/>
+
+		
+	<!-- service 객체를 dao에 연결해줌 DI방식1 (setter이용) -->
+	<bean id="memberService" class="kr.or.ddit.member.service.MemberService">
+		<property name="memberDao" ref="memberDao"/>	
+	</bean>	 
+	
+	
+	
+	
+	
+
 
 	<!-- person 스프링빈 등록 
 		age : 30
