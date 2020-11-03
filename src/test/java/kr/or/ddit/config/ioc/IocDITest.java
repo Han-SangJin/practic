@@ -79,13 +79,6 @@ public class IocDITest {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
 	@Resource(name="person")
 	Person person;
 	
@@ -95,10 +88,11 @@ public class IocDITest {
 		/***Given***/
 
 		/***When***/
-
+ 
 		/***Then***/
 		assertEquals(30, person.getAge());
 		assertEquals("내용", person.getBoardRepository().getBoard(1).getContent());
+//		assertEquals("2020-11-03", person.getBirthdate().toString());
 	}
 	
 	
