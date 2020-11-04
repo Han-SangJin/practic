@@ -8,8 +8,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	
-	<!-- kr.or.ddit 패키지 하위의 클래스중 @Service, @Controller 어노테이션이 붙은 클래스를 스캔하여 스프링 빈으로 생성 -->
-	<context:component-scan base-package="kr.or.ddit" use-default-filters="false">
+	<!-- kr.or.ddit 패키지 하위의 클래스중 @Service, @Controller 어노테이션이 붙은 클래스를 스캔하여 스프링 빈으로 생성 
+	true 로 하면 자동으로 스캔-->
+	<context:component-scan base-package="kr.or.ddit" use-default-filters="false">	
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
@@ -41,5 +42,13 @@
 	server 에 등록된 default servlet에 위임
 	servlet-name 과 관련 -->
 	<mvc:default-servlet-handler/>
+	
+	
+	<!-- 파일 업로드 처리를 위한 multipartResolver 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		
+	</bean>
+	
+	
 	
 </beans>

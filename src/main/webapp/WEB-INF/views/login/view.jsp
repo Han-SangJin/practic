@@ -23,9 +23,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath }/js/js.cookie-2.2.1.min.js"></script>
 	
-	
-	<script> 
-		      
+	  
+	<script>   
+		        
 		$(function(){
 			
 			// remember me cookie 확인
@@ -35,7 +35,7 @@
 				$("#inputEmail").val(Cookies.get("USERNM"))
 				//console.log("체크");
 			} 
-  
+      
 				   
 			// sign in b버튼이 클릭 되엇을때 이벤크 핸들러
 			$("button").on('click',function(){

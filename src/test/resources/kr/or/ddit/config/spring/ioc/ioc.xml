@@ -41,7 +41,7 @@
 	<bean id="boardServiceC" class="kr.or.ddit.board.service.BoardService">
 		<constructor-arg name="boardRepository" ref="boardRepository"/>
 	</bean>
-
+	
 
 
 	

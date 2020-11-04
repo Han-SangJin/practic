@@ -23,9 +23,10 @@ public class IocDITest {
 	// ioc.xml을 바탕으로 스프링 빈이 잘 생성되었는지 확인
 	// setter-boardService, constructor-boardServiceC 주입 확인
 	
+	
 	// DI   ioc.xml에서  DI(setter)방식 불러옴
 	// 스프링 빈중에 호환되는 타입의 빈이 있을때 주입
-	@Autowired	// ioc.xml내용 자동으로 불러옴
+	@Autowired								// ioc.xml내용 자동으로 불러옴
 	ApplicationContext context;
 	
 	@Resource(name="boardService") // bean id로 호출 

@@ -10,10 +10,9 @@ import kr.or.ddit.member.model.MemberVo;
 @Service("memberService")
 public class MemberService implements MemberServiceI {
 	
-	
-	
 	@Resource(name="memberDao")
 	private MemberDaoI memberDao;
+	
 	
 	// dao getter setter 생성
 	public MemberDaoI getMemberDao() {
@@ -24,17 +23,16 @@ public class MemberService implements MemberServiceI {
 	}
 	
 	
-	
 	// service 기본 생성자
 	public MemberService() {
 		
 	}
+	
+	
 	// dao 정보를 받아오는 service 생성자
 	public MemberService(MemberDaoI memberRepository) {
 		this.memberDao = memberRepository;
 	}
-	
-	
 	
 	
 	// 멤버 체크
