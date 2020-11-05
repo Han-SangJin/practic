@@ -37,7 +37,7 @@ public class MemberRegistControllerTest extends WebTestConfig {
 		MockMultipartFile file = new MockMultipartFile("realFilename", "sally.png", "image/png", is);
 		mockMvc.perform(fileUpload("/memberRegist/process")
 						.file(file)
-						.param("userid","테스트id2")
+						.param("userid","테스트id6")
 						.param("usernm", "테스트")
 						.param("pass", "123")
 						.param("alias", "테스트")
@@ -45,17 +45,8 @@ public class MemberRegistControllerTest extends WebTestConfig {
 						.param("addr2", "테스트")
 						.param("zipcode", "테스트"))
 		.andExpect(status().is(200))	//200 은 정상
-		.andExpect(redirectedUrl("/memberList/process"));
+		.andExpect(view().name("/member/memberRegist"));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 //	// 멤버 등록 테스트(실패)
