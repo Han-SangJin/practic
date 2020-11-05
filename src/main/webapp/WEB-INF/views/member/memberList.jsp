@@ -31,7 +31,7 @@ $(document).ready(function(){
 		var userid = $(this).data("userid");
 		console.log("userid : " + userid);
 		
-		document.location=${pageContext.request.contextPath}"/member/view?userid=" + userid;
+		document.location="/member/view?userid=" + userid;
 	})
 })
   
@@ -96,9 +96,9 @@ $(document).ready(function(){
 		</div>  
 		<a href="${pageContext.request.contextPath}/memberRegist/view" class="btn btn-default pull-right">사용자 등록</a>
 		
- 		 page : ${pageVo.getpage() }
+ 	<%-- 	 page : ${pageVo.getpage() }
  		 pages : ${pages }
- 		<%-- memeberList : ${memberList} --%>
+ 		memeberList : ${memberList}
 		<div class="text-center">
 			<ul class="pagination">
 				<c:forEach var="i" begin="1" end="${pages }">
@@ -109,12 +109,12 @@ $(document).ready(function(){
 						</c:when>
 						<c:otherwise>
 							<li><a href="${pageContext.request.contextPath}/memberList?page=${i}">${i}</a></li>
-							<%-- <%=request.getContextPath()%>  =  ${pageContext.request.contextPath } --%>
+							<%=request.getContextPath()%>  =  ${pageContext.request.contextPath }
 						</c:otherwise>	
 					</c:choose>				
 				</c:forEach>
 			</ul>
-		</div>
+		</div> --%>
 </div>
 	</div>
 		</div>

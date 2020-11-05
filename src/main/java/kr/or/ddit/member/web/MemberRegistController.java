@@ -45,9 +45,9 @@ public class MemberRegistController {
 		return "member/memberRegist";	
 	}
 	
-	
+	//#{userid}, #{usernm}, #{pass}, SYSDATE, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
 	@RequestMapping(path="/process")							
-	public String process(String userid, String usernm, String alias, String pass, String addr1, String addr2, 
+	public String process(String userid, String usernm, String pass, String alias, String addr1, String addr2, 
 										String zipcode, @RequestPart("realFilename") MultipartFile file) { 
 		
 		logger.debug("arameter : {}, {}, {}, {}, {}, {}, {}", userid, usernm, alias, pass, addr1, addr2, zipcode );
@@ -57,7 +57,7 @@ public class MemberRegistController {
 		String real_Filename = "D:\\upload\\" + file.getOriginalFilename();
 		File uploadFile = new File(real_Filename);
 		
-		// 파일 업로드
+		// 파일 업로드		// 이미지 파일 realname, name 둘중 하나만 있으면 오류발생 둘다 널이면 괜찮음
 		try {
 			file.transferTo(uploadFile);
 		} catch (IllegalStateException | IOException e) {
@@ -66,7 +66,7 @@ public class MemberRegistController {
 		
 		// 사용자 정보 등록
 		MemberVo memberVo = new MemberVo(userid,usernm,pass,alias,addr1,addr2,zipcode,real_Filename,file.getOriginalFilename());
-		logger.debug("memberVo : {}, {}, {}, {}, {}, {}, {}, {}, {}", userid, usernm, alias, pass, addr1, addr2, zipcode, real_Filename, file.getOriginalFilename() );
+		logger.debug("memberVo : {}, {}, {}, {}, {}, {}, {}, {}, {}", userid, usernm, alias, pass, addr1, addr2, zipcode, real_Filename, file.getOriginalFilename());
 		int insertCnt = memberService.insertMember(memberVo);
 		logger.debug("insertCnt : {}", insertCnt);
 		
@@ -74,7 +74,7 @@ public class MemberRegistController {
 			return "redirect:/memberList/process";
 		
 		}else {
-			return "/member/memberRegist";
+			return "member/memberRegist";
 		}
 	}
 	

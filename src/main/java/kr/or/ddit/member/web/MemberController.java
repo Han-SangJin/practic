@@ -45,6 +45,6 @@ public class MemberController {
 		
 		model.addAttribute("memberVo", memberVo);
 		//forward:/WEB-INF/views/   .jsp
-		return "/member/member";	
+		return "member/member";	
 	}
 }

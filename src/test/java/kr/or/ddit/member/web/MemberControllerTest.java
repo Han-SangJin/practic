@@ -54,7 +54,7 @@ public class MemberControllerTest extends WebTestConfig {
 		mockMvc.perform(post("/member/process")
 						.param("userid","cony"))			// 전달할 파라미터
 		.andExpect(status().is(200))	//200 은 정상
-		.andExpect(view().name("/member/member"))			// url 값 확인
+		.andExpect(view().name("member/member"))			// url 값 확인
 		.andExpect(model().attributeExists("memberVo"));	// memberVo 이름으로 된 키값이 있는지 확인
 	}
 	

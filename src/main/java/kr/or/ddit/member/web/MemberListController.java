@@ -34,7 +34,7 @@ public class MemberListController {
 	@RequestMapping(path = "/view", method = RequestMethod.GET)	
 	public String getView() {
 		logger.debug("MemberList-Controller.getView()");
-		return "redirect:/memberList/process";	
+		return "memberList/process";	
 	}
 	
 //	public String process(String page_str, @RequestParam(name="page", required = true, defaultValue = "1") int page
@@ -49,7 +49,7 @@ public class MemberListController {
 		
 		model.addAttribute("memberList", memberList);
 
-		return "/member/memberList";	
+		return "member/memberList";	
 			
 	}
 

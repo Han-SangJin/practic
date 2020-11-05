@@ -29,6 +29,7 @@ public class MemberRegistControllerTest extends WebTestConfig {
 	}
 	 
 	
+	//#{userid}, #{usernm}, #{pass}, SYSDATE, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
 	// 멤버 등록 테스트(성공)
 	@Test
 	public void processSuccessTest() throws Exception {
@@ -37,34 +38,37 @@ public class MemberRegistControllerTest extends WebTestConfig {
 		MockMultipartFile file = new MockMultipartFile("realFilename", "sally.png", "image/png", is);
 		mockMvc.perform(fileUpload("/memberRegist/process")
 						.file(file)
-						.param("userid","테스트id6")
+						.param("userid","id테스트2")
+						.param("usernm", "usernm테스트")
+						.param("pass", "123")
+						.param("alias", "alias테스트")
+						.param("addr1", "addr1테스트")
+						.param("addr2", "addr2테스트") 
+						.param("zipcode", "11"))					// 디비 접속까지 뜨는데 insert값이 0으로 나오던 이유  	
+		.andExpect(status().is(302))				//200 insert 실패 // 302 insert 성공 / 성공테스트 하려면 302로 바꿔서 실행
+		.andExpect(view().name("redirect:/memberList/process"));	// 200으로 바꿔서 실행 해도 insert 값이 0 나와서 실패 조건문으로 가기때문에 페이지 에러발생
+	}																// 테스트 통과하려면 insert 성공하는 수밖에없음..
+	//오라클에서 zipcode의 데이터 크기가 5byte 였는데 범위가 넘어가는 숫자를 넣어서 안되는것 이였고	
+	// insert 부분에 try ctach 예외처리가 되있어 junit 이나 콘솔창에도 에러가 뜨지 않았던것	
+	
+	 
+	// 멤버 등록 테스트(실패)
+	@Test
+	public void processFailTest() throws Exception {
+		InputStream is = getClass().getResourceAsStream("/kr/or/ddit/upload/sally.png");
+		MockMultipartFile file = new MockMultipartFile("realFilename", "sally.png", "image/png", is);
+		mockMvc.perform(fileUpload("/memberRegist/process")
+						.file(file)
+						.param("userid","noylit")
 						.param("usernm", "테스트")
 						.param("pass", "123")
 						.param("alias", "테스트")
 						.param("addr1", "테스트")
 						.param("addr2", "테스트")
 						.param("zipcode", "테스트"))
-		.andExpect(status().is(200))	//200 은 정상
-		.andExpect(view().name("/member/memberRegist"));
+		.andExpect(status().is(200))						//200 은 정상
+		.andExpect(view().name("member/memberRegist"));
 	}
-	
-	
-//	// 멤버 등록 테스트(실패)
-//	@Test
-//	public void processFailTest() throws Exception {
-//		MvcResult result =  mockMvc.perform(post("/login/process")
-//											.param("userid","brown")
-//											.param("pass", "brownPassFail")).andReturn(); // 비밀번호 다르게 설정
-//																			//andReturn() 리턴값 : MvcResult
-//		
-//		
-//		ModelAndView mav = result.getModelAndView();	// model 객체와 view 객체를 관리해주는 객체
-//														// model 요청 생성
-//														// view 응답을 표현해주는 기능
-//		
-//		assertEquals("login/view", mav.getViewName());
-//		assertEquals("fail", mav.getModel().get("msg"));
-//	}
 	
 	
 

@@ -53,6 +53,7 @@ public class ProfileController {
 		System.out.println(userid);
 		MemberVo memberVo = memberService.getMember(userid);
 		
+		// 이미지 파일 realFileName, fileName 둘중 하나만 있으면 오류발생 둘다 null이면 괜찮음
 		if(memberVo.getFilename() != null) {
 			
 			FileInputStream fis = new FileInputStream(memberVo.getFilename());

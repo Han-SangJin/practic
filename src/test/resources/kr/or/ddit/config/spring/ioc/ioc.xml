@@ -36,7 +36,7 @@
 		<!-- boardService가 의존하는 boardDao 스프링빈을 setter 메소드를 통해 주입(Dependency Injection) -->
 		<property name="boardRepository" ref="boardRepository"/>	
 	</bean>	 	
-	
+	 
 	<!-- service 객체를 dao에 연결해줌 DI방식2 (생성자 이용) 생성자를 이용할때는 name속성을 추가 안해줘도 됨 -->
 	<bean id="boardServiceC" class="kr.or.ddit.board.service.BoardService">
 		<constructor-arg name="boardRepository" ref="boardRepository"/>

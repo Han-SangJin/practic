@@ -17,8 +17,8 @@ public class MemberListControllerTest extends WebTestConfig {
 	@Test
 	public void getViewTest() throws Exception {
 		mockMvc.perform(get("/memberList/view"))						// perform = 목업 실행
-				.andExpect(status().is3xxRedirection())		// is3xxRedirection = 300대 에러 success 시키기
-				.andExpect(view().name("redirect:/memberList/process"));	// name = 페이지이름 가져오기
+				.andExpect(status().isOk())		// is3xxRedirection = 300대 에러 success 시키기
+				.andExpect(view().name("memberList/process"));	// name = 페이지이름 가져오기
 	}
 	 
 	
@@ -27,7 +27,7 @@ public class MemberListControllerTest extends WebTestConfig {
 	public void processSuccessTest() throws Exception {
 		mockMvc.perform(post("/memberList/process"))
 		.andExpect(status().is(200))							//200 은 정상
-		.andExpect(view().name("/member/memberList"))			// url 값 확인
+		.andExpect(view().name("member/memberList"))			// url 값 확인
 		.andExpect(model().attributeExists("memberList"));		// memberList 이름으로 된 키값이 있는지 확인
 	}
 	

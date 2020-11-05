@@ -41,10 +41,11 @@ public class MemberDao implements MemberDaoI {
 
 		try{
 			insertCnt = sqlSession.insert("member.insertMember", memberVo);
+			System.out.println("MemberDao.java insertCnt : "+insertCnt);
 		}catch(Exception e){
 			
 		}
-
+		
 		if(insertCnt >= 1) {
 			sqlSession.commit();
 		}else {

@@ -45,7 +45,7 @@ public class MemberUpdateController {
 		logger.debug("Member : {}", memberVo);
 		model.addAttribute("memberVo", memberVo);
 		
-		return "/member/memberUpdate";	
+		return "member/memberUpdate";	
 	}
 	
 	
@@ -60,7 +60,7 @@ public class MemberUpdateController {
 		if(updateCnt == 1){
 			return "redirect:/member/view?userid="+ userid;
 		}else {
-			return "/member/memberUpdate";	
+			return "member/memberUpdate";	
 		}
 	}
 
