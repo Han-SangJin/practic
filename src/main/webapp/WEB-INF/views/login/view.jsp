@@ -118,8 +118,13 @@
   </head>
    
   
-	
+	    
   <body>
+	msg : ${msg } <br>
+	msg_s : ${msg_s } <br>
+	<c:remove var="msg_s" scope="session"/>		<!-- msg_s 세션삭제 -->
+	
+	msg_ra : ${msg_ra }
 	
     <div class="container">
 	
