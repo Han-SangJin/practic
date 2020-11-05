@@ -126,7 +126,7 @@
 	
 	msg_ra : ${msg_ra }
 	
-    <div class="container">
+    <div class="container"> 
 	
       <form id="frm" class="form-signin" action="${pageContext.request.contextPath}/login/process" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>

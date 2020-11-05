@@ -17,7 +17,7 @@
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- prefix : 접두어, suffix : 접미어 
-			 Controller가 리턴하는 문자열에 prefix, suffix를 적용하여 해당 경로의 파일로 응답을 생성
+			 Control0ler가 리턴하는 문자열에 prefix, suffix를 적용하여 해당 경로의 파일로 응답을 생성
 			 LoginController.getView() ==> "login/view"
 			
 				prefix				viewName	  suffix

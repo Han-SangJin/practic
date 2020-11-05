@@ -34,6 +34,17 @@ public class MemberVo {
 	
 	
 	
+	public MemberVo(String userid, String pass, String usernm, String alias, String addr1, String addr2, String zipcode) {
+		this.userid = userid;
+		this.pass = pass;
+		this.usernm = usernm;
+		this.alias = alias;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.zipcode = zipcode;
+	}
+
+
 	public String getUserid() {
 		return userid;
 	}

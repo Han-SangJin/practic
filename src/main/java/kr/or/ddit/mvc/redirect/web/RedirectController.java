@@ -28,15 +28,19 @@ public class RedirectController {
 		
 		
 		// 리다이렉트 된 페이지에서 일회에 한해 사용할 수 있는 속성
-		ra.addFlashAttribute("msg_ra","hello, world_ra");
+		ra.addFlashAttribute("msg_ra","hello, world_ra");	//set Attribute
 		// 마찬가지로 1회성 으로 받는 페이지 에서 새로고침 하면 삭제됨
-		ra.addAttribute("msg_ra_attr", "brown");	// url 주소에 ?msg_ra_attr=brown 이 추가되서 나옴
+		
+		// url 주소에 ?msg_ra_attr=brown 이 추가되서 나옴
+		ra.addAttribute("msg_ra_attr", "brown");			// set parameter
 		
 		// 리다이렉트시 모델 객체에 추가된 속성을 리다이렉트 주소의 파라미터로 추가한다(get)
 		// "redirect:/login/view ==> /login/view?msg=hello, world
 		
 		return "redirect:/login/view";
 	}
+	
+	
 	
 	
 	

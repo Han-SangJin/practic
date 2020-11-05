@@ -1,9 +1,16 @@
 package kr.or.ddit.member.service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
+import kr.or.ddit.common.model.PageVo;
+import kr.or.ddit.db.MybatisUtil;
 import kr.or.ddit.member.dao.MemberDaoI;
 import kr.or.ddit.member.model.MemberVo;
 
@@ -39,6 +46,34 @@ public class MemberService implements MemberServiceI {
 	@Override
 	public MemberVo getMember(String userid) {
 		return memberDao.getMember(userid);
+	}
+	
+	
+	@Override
+	public List<MemberVo> selectAllMember() {
+		return memberDao.selectAllMember();
+	}
+	
+	
+	@Override
+	public int insertMember(MemberVo memberVo) {
+		return memberDao.insertMember(memberVo);
+	}
+
+	
+	@Override
+	public int deleteMember(String userid) {
+		return memberDao.deleteMember(userid);
+	}
+		
+	@Override
+	public int updateMember(MemberVo memberVo) {
+		return memberDao.updateMember(memberVo);
+	}
+	@Override
+	public Map<String, Object> selectMemberPageList(PageVo pageVo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -2,12 +2,6 @@ package kr.or.ddit.mvc.fileupload.web;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +37,7 @@ public class FileUploadController {
 	public String upload(String userid, @RequestPart("file") MultipartFile file) {
 		logger.debug("userid : {}", userid);
 		logger.debug("name : {} / filename : {} / size : {}", 
-				file.getName(), file.getOriginalFilename(), file.getSize());
+		file.getName(), file.getOriginalFilename(), file.getSize());
 		
 		File uploadFile = new File("d:\\upload\\" + file.getOriginalFilename());
 		
