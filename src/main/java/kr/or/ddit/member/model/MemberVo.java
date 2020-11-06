@@ -12,6 +12,7 @@ public class MemberVo {
 	// null 이면 안되고, empty 체크
 	@NotEmpty		
 	private String usernm;
+	
 	private String alias;
 	private String addr1;
 	private String addr2;

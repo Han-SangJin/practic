@@ -39,12 +39,12 @@ public class MemberDao implements MemberDaoI {
 		SqlSession sqlSession = MybatisUtil.getSession();
 		int insertCnt = 0;
 
-		try{
+//		try{
 			insertCnt = sqlSession.insert("member.insertMember", memberVo);
 			System.out.println("MemberDao.java insertCnt : "+insertCnt);
-		}catch(Exception e){
-			
-		}
+//		}catch(Exception e){
+//			
+//		}
 		
 		if(insertCnt >= 1) {
 			sqlSession.commit();

@@ -65,6 +65,11 @@ public class MemberRegistController {
 		logger.debug("realFilename : {} / filename : {} / size : {}", 
 														file.getName(), file.getOriginalFilename(), file.getSize());
 		
+		logger.debug("br.hasErrors() : {}", br.hasErrors() );
+		if(br.hasErrors()) {
+			return "member/memberRegist";
+		}
+		
 		// jsp에서 넘어오는 <input type = file name="realfilename> 이름이 겹쳐서 mapping이 값을 넣어주려고 하기 때문에 이름이 겹치지 않게 해주어야 한다.
 		String real_Filename = "D:\\upload\\" + file.getOriginalFilename();
 		File uploadFile = new File(real_Filename);
@@ -76,16 +81,16 @@ public class MemberRegistController {
 			e.printStackTrace();
 		}
 		
+		memberVo.setFilename(real_Filename);
+		memberVo.setRealFilename(file.getOriginalFilename());
+		
 //		 사용자 정보 등록   ,real_Filename,file.getOriginalFilename()     , real_Filename, file.getOriginalFilename()
 //		memberVo = new MemberVo();
+		
 		logger.debug("memberVo : {}", memberVo);
 		int insertCnt = memberService.insertMember(memberVo);
 		logger.debug("insertCnt : {}", insertCnt);
 		
-		
-		if(br.hasErrors()) {
-			return "member/memberRegist";
-		}
 		
 		if(insertCnt == 1){
 			return "redirect:/memberList/process";
