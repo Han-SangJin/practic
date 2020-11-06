@@ -1,0 +1,83 @@
+마이그레이션  (새로운 하드웨어나, 새로운 소프트웨어, 또는 둘 모두가 바뀌는 환경으로의 이주를 포함 할 수 있다)
+ms-sql server ==> oracle
+servlet ==> spring controller
+
+
+컨트롤러 메소드 인자 설정시 발생할 수 있는 문제점
+1. primitive type (int, double...)
+	메소드(int page)
+	==> page 파라미터가 반드시 존재 해야함
+	
+	
+개발시 고려 사항 : 해당 파라미터가 반드시 전송이 되는가!!!
+	전송 될경우 : 별다른 조치 업시 사용가능
+	전송 안될경우 : @RequestParam(name="파라미터명", requierd=false, defaultValue="")
+				command 객체를 사용
+				** primitive type 의 필드는 개체 생성시 자동으로 초기 값으로 할당이 된다.
+
+
+
+
+스프링 객체 검증
+1. Spring validator
+	1. 스프링 프레임워크에서 제공하는 Validator interface를 구현
+		.supports : 검증하려고 하는 객체가 해당 validator에서 검증할 수 있는지 여부를 반환
+		.validate : 검증 로직을 작성-개발자가 로직을 직접 구현
+	2. Controller 메소드에 검증하려고 하는 커맨드 객체 바로 뒤에 BindingResult 객체를 인자로 선언
+		스프링 프레임워크에서 메소드 인자 구성이 비교적 자유롭지만 BindingResult 객체는 검증을 하려고 하는 커맨드 객체뒤에 선언이 되어 있어야 한다.
+		
+		
+2. JST303 유효성 검증
+	1. Command 객체 인자 앞에 @Valid 어노테이션 적용
+	2. Command 객체의 필드에 검증 어노테이션을 적용
+	3. Command 객체 뒤에 BindIngResult 객체를 인자로 선언
+		객체 검증의 결과가 bindingResult 객체에 담긴다
+		==> 개발자가 직접 검증과 관련된 메소드를 호출하지 않는다
+	
+	Spring validator 와 비교 ==> 복잡한 검증은 불가능
+	@Max, @Min, @Size, @Pattern(정규식) 등 간단한 형태만 가능
+	
+	복잡한 형태 : 네이버에 비밀번호 변경시 기존에 사용하던 비밀번호를 사용하지 못하게끔 검증
+		
+
+
+스프링 예외처리
+1. Controller 마다 처리
+   Controller class 에 @ExceptionHandler 어노테이션이 적용된 메소드를 생성
+   어노테이션 속성으로 해당 메소드에서 처리할 예외에 대해 선언
+   해당 예외가 발생시 @ExceoptionHandler 어노테이션이 적용된 메소드가 호출된다
+   
+   
+   
+2. 공통의 예외처리 클래스로 분리
+	.예외처리를 할 클래스를 생성, 클래스에 @ControllerAdvice 어노테이션 적용
+	.해당 클래스의 예외처리 메소드는 @ExceptionHandler 어노테이션을 적용, 처리가능한 예외타입에 대해 등록
+	.@ControllerAdvice 어노테이션이 적용된 클래스를 스캔할 수 있도록
+		Component-scan 엘레멘트를 수정
+
+
+3. 사용자 정의 예외가 발생시 스프링 프레임워크에게 응답코드를 설정하는 방법
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

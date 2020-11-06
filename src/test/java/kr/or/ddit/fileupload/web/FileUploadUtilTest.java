@@ -25,7 +25,7 @@ public class FileUploadUtilTest extends WebTestConfig {
 				.andExpect(status().isOk())						// idOk = erorr code :  ex)200, 404
 				.andExpect(view().name("fileupload/fileupload"));	// name = 페이지이름 가져오기
 	}
-	  
+	
 	
 	@Test
 	public void uploadTest() throws Exception {

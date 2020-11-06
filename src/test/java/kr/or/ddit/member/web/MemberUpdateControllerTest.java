@@ -21,12 +21,12 @@ public class MemberUpdateControllerTest extends WebTestConfig {
 	@Test
 	public void getViewTest() throws Exception {
 		mockMvc.perform(get("/memberUpdate/view")
-						.param("userid", "noylit"))
+						.param("userid", "hsj"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("memberVo"))
 		.andExpect(view().name("member/memberUpdate"));
 	}
-
+	
 	
 // UPDATE users SET usernm = #{usernm}, pass = #{pass},  alias = #{alias},  addr1 = #{addr1}, addr2 = #{addr2}, zipcode = #{zipcode}
 // WHERE userid = #{userid}
@@ -43,9 +43,9 @@ public class MemberUpdateControllerTest extends WebTestConfig {
 						.param("addr1", "대전시 대덕구 송촌동")
 						.param("addr2", "483-15")
 						.param("zipcode", "3322")
-						.param("userid", "noylit"))
+						.param("userid", "hsj"))
 		.andExpect(status().is(302))
-		.andExpect(view().name("redirect:/member/view?userid=noylit"));	// redirect 나 forward는 resolver가 붙지 않기 때문에 url 앞에 / 를 빼먹지 말고 붙여줘야 페이지를 찾을수 있음
+		.andExpect(view().name("redirect:/member/view?userid=hsj"));	// redirect 나 forward는 resolver가 붙지 않기 때문에 url 앞에 / 를 빼먹지 말고 붙여줘야 페이지를 찾을수 있음
 	}
 	
 	

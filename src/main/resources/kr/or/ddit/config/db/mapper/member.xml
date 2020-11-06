@@ -17,7 +17,7 @@
 	
 	
 	 <insert id="insertMember" parameterType="MemberVo">
-      		INSERT INTO users VALUES(#{userid}, #{usernm}, #{pass}, SYSDATE, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realFilename})
+      		INSERT INTO users VALUES(#{userid}, #{usernm}, #{pass}, SYSDATE, #{alias}, #{addr1}, #{addr2}, #{zipcode,}, #{filename}, #{realFilename})
    </insert>
    
    

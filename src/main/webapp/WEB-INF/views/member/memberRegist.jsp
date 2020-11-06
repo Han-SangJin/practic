@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <!-- 검증자 추가 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,18 +41,18 @@ $(document).ready(function(){
 		
 		$('#frm').submit();
 	})
-	/* initData() */
+	 initData() 				// 초기 데이터 입력		// 크롬에서 개발자 도구(f12로) initData() 입력하면 불러와짐
 })
 function initData(){
 	$('#userid').val('hsj')
-	$('#usernm').val('한상진')
+	/* $('#usernm').val('한상진') */
 	$('#alias').val('HSJ')
 	$('#pass').val('pass1234')
 	$('#addr1').val('대전 중구 중앙로 76')
 	$('#addr2').val('영민빌딩 4층 404호')
 	$('#zipcode').val('34904')
 }
-</script>	
+</script>	 
 
 </head>
 
@@ -97,9 +98,11 @@ function initData(){
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="usernm" name="usernm" placeholder="사용자 이름" value="${param.usernm}">
+							<!-- validate(검증자)기능 path의 맨 앞글자는 소문자로-->
+							<span style="color:red;"><form:errors path="memberVo.usernm"/></span>
 						</div>
 					</div>
-					
+					 
 					<div class="form-group">
 						<label for="alias" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
