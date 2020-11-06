@@ -14,7 +14,7 @@ import kr.or.ddit.member.model.MemberVo;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceI;
 
-@WebServlet("/profileDownload")
+@WebServlet("/profileDownload1")
 public class ProfileDownloadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MemberServiceI memberService;
@@ -25,7 +25,7 @@ public class ProfileDownloadServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+		
 		// 사용자 아이디 파라미터 확인하고
 		String userid = request.getParameter("userid");
 		
@@ -36,12 +36,13 @@ public class ProfileDownloadServlet extends HttpServlet {
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + memberVo.getRealFilename() + "\"");
 		response.setContentType("application/octet-stream");	
 		// mozila 사이트 에서 Content-Type - media type - Media Types의 종류 - octet 검색 내용 참고
-
+		
 		
 		// 경로 확인 후 파일 입츌룍울 통해 응답생성
 		// 파일 읽기
 		// 응답 생성 
 		System.out.println("memberVo.getFilename()"+ memberVo.getFilename());
+		
 		FileInputStream fis = new FileInputStream(memberVo.getFilename());
 		ServletOutputStream sos = response.getOutputStream();
 		

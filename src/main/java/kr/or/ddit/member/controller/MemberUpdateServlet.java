@@ -19,7 +19,7 @@ import kr.or.ddit.member.model.MemberVo;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceI;
 
-@WebServlet("/memberUpdate")
+@WebServlet("/memberUpdate1")
 @MultipartConfig
 public class MemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

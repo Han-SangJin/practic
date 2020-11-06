@@ -66,8 +66,8 @@ public class MemberRegistController {
 														file.getName(), file.getOriginalFilename(), file.getSize());
 		
 		logger.debug("br.hasErrors() : {}", br.hasErrors() );
-		if(br.hasErrors()) {
-			return "member/memberRegist";
+		if(br.hasErrors()) {					// 왜 안될까...... 메세지는 제대로 뜨는데...
+			return "member/memberRegist";	
 		}
 		
 		// jsp에서 넘어오는 <input type = file name="realfilename> 이름이 겹쳐서 mapping이 값을 넣어주려고 하기 때문에 이름이 겹치지 않게 해주어야 한다.

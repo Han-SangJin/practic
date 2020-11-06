@@ -15,8 +15,17 @@
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/> <!-- ControllerAdvice 공통예외처리 -->
 	</context:component-scan>
 	
+	<bean id="profileImgView" class="kr.or.ddit.mvc.view.ProfileImgView"/>		<!-- ProfileImgView 객체 등록 / profile_controller가 사용자 정보가져 와서 url을 요청하면 
+																						profileImgView를 불러온다 -->
+	<bean id="DownloadView" class="kr.or.ddit.mvc.view.DownloadView"/>																						
+																						
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>	<!-- Resolver 등록 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"/>
+	</bean>
 	
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">	<!-- view resolver -->
 		<!-- prefix : 접두어, suffix : 접미어 
 			 Control0ler가 리턴하는 문자열에 prefix, suffix를 적용하여 해당 경로의 파일로 응답을 생성
 			 LoginController.getView() ==> "login/view"
@@ -26,9 +35,15 @@
 			 
 			 = "/WEB-INF/views/login/view.jsp"
 		-->
+		<property name="order" value="1"/>								<!-- view resolver 등록할때 같이 등록 -->
+		
+		<!-- url 주소를 설정 해주는  resolver  -->
 		<property name="prefix" value="/WEB-INF/views/"/>
+											<!--  ex)  localhost/WEB-INF/views   +   /member/member  +  .jsp -->		
 		<property name="suffix" value=".jsp"/>
+		
 	</bean>
+ 
 	
 	<!-- @Controller, @RequestMapping,
 		HanlderMapping, HandlerAdapater,
@@ -36,7 +51,6 @@
 		spring mvc 패턴에 필요한 어노테이션, 엘레먼트 처리 
 		-->
 	<mvc:annotation-driven/>
-	
 	
 	
 	<!-- spring container가 처리하지 못하는 요청에 대해
@@ -50,13 +64,15 @@
 	</bean>
 	
 	
-	
 	<!-- 정적자원 매핑 처리
 		 1. url 단축을 목적
 		 2. WEB-INF : 외부에서 접근불가능한 공간에 저장된 자원들 접근 매핑 -->
 		 <!-- localhost/resoureces/style.css -->
-		 <mvc:resources mapping="/resources/**" location="/WEB-INF/views/error/"/>
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/views/error/"/>
 	
-	
-	
+	 
+
+	 
+	 
+	 
 </beans>

@@ -21,7 +21,7 @@
 <script>
 $(document).ready(function(){
 	$('#profileDownBtn').on('click',function(){
-		document.location="profileDownload?userid=${memberVo.userid}"
+		document.location="/profileDownload?userid=${memberVo.userid}"
 	})
 
 })  
@@ -49,18 +49,18 @@ $(document).ready(function(){
 								placeholder="사용자 아이디">
 						</div>
 					</div> -->
-					  
+					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 							<%-- <img src="${cp}/profile/view/${memberVo.filename}"/> --%>
 							
-							<img src="${cp}/profileImg/process?userid=${memberVo.userid}"/><br>
+							<img src="${cp}/profileImgView?userid=${memberVo.userid}"/><br>
 							<c:set var="userid" scope="request" value="${memberVo.userid}"/>
 							<button id="profileDownBtn" type="button" class="btn btn-default">다운로드 :${memberVo.realFilename}</button></a>
 						</div> 
 					</div> 
-						
+					
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div id="ddd" class="col-sm-10">

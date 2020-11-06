@@ -52,6 +52,32 @@ public class LoginController {
 	}
 	
 	
+							/* --- View Resolver --- */
+	
+	// http://localhost/login/json
+	// ranger() ==> Model 객체에 rangers라는 이름의 속성이 저장됨 ==> json()
+	// Model 객체 송성이 존재 (rangers)
+	@RequestMapping("/json")
+	public String json() {
+		
+		return "jsonView";	// <bean id="jsonView" class="MappingJackson2JsonView"/>
+				
+				// view resolver를 두개 등록함
+				// 1. beanNameViewResolver
+				//    viewName 해당하는 빈이 있는지 찾음
+				//    만약 해당하는 빈(View)이 있으면 해당 view 결과를 생성
+				//    beanNameViewResolver에서 찾지 못했을 경우
+				// 2. internalResourceViewResolver
+				//	  prefix, surfix 설정에 따라 /WEB-INF/views/jsonView.jsp
+				//    internalResourceViewResolver는 view 이름에 해당하는
+				//    자원이 존재하는지, 존재하지 않는지 체크하지 않고 무조건 forwarding
+				//    ** viewResolver 우선순위를 가장 후순위로 미뤄야함
+	}
+	
+	
+	
+	
+	
 	// localhost/login/view 요청시 처리되는 메소드
 	// 요청 메소드가 GET 일때만 처리  method= RequestMethod.GET
 	// 요청 메소드 복수개 설정  {RequestMethod.GET, RequestMethod.POST}

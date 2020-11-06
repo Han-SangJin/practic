@@ -27,7 +27,7 @@ import kr.or.ddit.member.service.MemberServiceI;
 @Controller
 @MultipartConfig
 public class ProfileController {
-
+			/* 내가만든 클래스 */
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired	// ioc.xml내용 자동으로 불러옴
@@ -47,7 +47,7 @@ public class ProfileController {
 	
 	
 	@RequestMapping(path="/process")							
-	public void process(Model model, String userid, HttpServletResponse response) throws IOException { 
+	public void process(String userid, HttpServletResponse response) throws IOException { 
 		
 		response.setContentType("image/png");
 		System.out.println(userid);
