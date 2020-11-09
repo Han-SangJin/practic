@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.or.ddit.board.model.BoardVo;
+import kr.or.ddit.board.model.BoardVO;
 import kr.or.ddit.board.repository.BoardRepositoryI;
 import kr.or.ddit.board.service.BoardServiceI;
 
@@ -33,11 +33,11 @@ public class JavaSpringScanConfigTest {
 			/***Given***/
 
 			/***When***/
-			BoardVo  boardVo = boardService.getBoard(1);
+			BoardVO  boardVo = boardService.getBoard(1);
 			
 			/***Then***/
 			assertNotNull(boardRepository);
 			assertNotNull(boardService);
-			assertEquals("내용", boardVo.getContent());
+			assertEquals("내용", boardVo.getBoard_cont());
 	}
 }

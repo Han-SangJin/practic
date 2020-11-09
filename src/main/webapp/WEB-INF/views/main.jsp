@@ -34,7 +34,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
 <%@ include file="/WEB-INF/views/layout/left.jsp" %>
 </div>  
-        
+         
   
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			  	     
@@ -43,7 +43,7 @@
 	<h1 class="blog-title">Main</h1>
 	<p class="lead blog-description">Jsp / Spring.</p>
 </div> 
- 
+  
 <div class="row">
  
 	<div class="col-sm-8 blog-main">
@@ -53,10 +53,10 @@
 			<p class="blog-post-meta">
 				2017.10.30, room 201
 			</p>
- 	 
+ 	  
 			<p>jsp를 통한 웹 프로그래밍 학습</p>
 			<hr>
-			         
+			 
 			<h3>상세내역</h3>
 			<p>JSP과정에서는 다음과 같은 내용을 학습한다.</p>
 			<ul>

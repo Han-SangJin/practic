@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
-import kr.or.ddit.common.model.PageVo;
+import kr.or.ddit.common.model.PageVO;
 import kr.or.ddit.db.MybatisUtil;
 import kr.or.ddit.member.dao.MemberDaoI;
 import kr.or.ddit.member.model.MemberVo;
@@ -19,7 +19,7 @@ public class MemberService implements MemberServiceI {
 	
 	@Resource(name="memberDao")
 	private MemberDaoI memberDao;
-	
+	  
 	
 	// dao getter setter 생성
 	public MemberDaoI getMemberDao() {
@@ -70,8 +70,10 @@ public class MemberService implements MemberServiceI {
 	public int updateMember(MemberVo memberVo) {
 		return memberDao.updateMember(memberVo);
 	}
+	
+ 
 	@Override
-	public Map<String, Object> selectMemberPageList(PageVo pageVo) {
+	public Map<String, Object> selectMemberPageList(PageVO pageVo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

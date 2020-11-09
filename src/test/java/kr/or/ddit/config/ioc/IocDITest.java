@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.or.ddit.board.model.BoardVo;
+import kr.or.ddit.board.model.BoardVO;
 import kr.or.ddit.board.service.BoardService;
 import kr.or.ddit.board.service.BoardServiceI;
 import kr.or.ddit.person.model.Person;
@@ -69,10 +69,10 @@ public class IocDITest {
 		
 		/***When***/				// context 호출하면 DL -  xml.
 		BoardServiceI  boardService = context.getBean("boardService", BoardServiceI.class);
-		BoardVo boardVo = boardService.getBoard(1);
+		BoardVO boardVo = boardService.getBoard(1);
 		
 		/***Then***/
-		assertEquals("첫번째 글", boardVo.getTitle());
+		assertEquals("첫번째 글", boardVo.getBoard_title());
 		
 	}
 	
@@ -92,7 +92,7 @@ public class IocDITest {
  
 		/***Then***/
 		assertEquals(30, person.getAge());
-		assertEquals("내용", person.getBoardRepository().getBoard(1).getContent());
+		assertEquals("내용", person.getBoardRepository().getBoard(1).getBoard_cont());
 //		assertEquals("2020-11-03", person.getBirthdate().toString());
 	}
 	

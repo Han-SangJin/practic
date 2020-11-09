@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.ddit.common.model.PageVo;
+import kr.or.ddit.common.model.PageVO;
 import kr.or.ddit.member.service.MemberService;
 import kr.or.ddit.member.service.MemberServiceI;
 
@@ -40,7 +40,7 @@ public class MemberListServlet extends HttpServlet {
 		request.setAttribute("pageSize", pageSize);
 		
 		// pageVo : page, pageSize
-		PageVo pageVo = new PageVo(page, pageSize);
+		PageVO pageVo = new PageVO(page, pageSize);
 //		pageVo.setPage(page);
 		
 		
