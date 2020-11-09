@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.category.model.CtgrVO;
+import kr.or.ddit.category.service.CtgrServiceI;
 import kr.or.ddit.member.model.MemberVo;
 import kr.or.ddit.member.service.MemberServiceI;
 
@@ -39,7 +41,9 @@ public class LoginController {
 	@Resource(name="memberService")
 	MemberServiceI memberService;
 	
-	
+	@Resource(name="ctgrService")
+	CtgrServiceI ctgrService;
+	  
 	@ModelAttribute("rangers")
 	public List<String> rangers(){
 		logger.debug("ranger()");
@@ -122,6 +126,9 @@ public class LoginController {
 			// prefix : /WEB-INF/views/
 			// surfix : .jsp
 			session.setAttribute("S_MEMBER", memberVo);
+			
+			List<CtgrVO> ctgrList = ctgrService.selectAllCtgr();
+			session.setAttribute("ctgrList", ctgrList);
 			
 			// jsp/servlet 기반에서 사용한 코드 : request.setAttribute("to_day", new  Date());
 			model.addAttribute("to_day", new Date());

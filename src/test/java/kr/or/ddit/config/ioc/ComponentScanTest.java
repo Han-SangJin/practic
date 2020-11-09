@@ -25,7 +25,7 @@ public class ComponentScanTest {
 	
 	
 	// boardRepository, boardService 스프링 빈이 정상적으로 등록 되었는지 확인
-	
+	 
 	
 	@Test
 	public void test() {

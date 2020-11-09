@@ -2,11 +2,13 @@ package kr.or.ddit.category.dao;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import kr.or.ddit.category.model.CtgrVO;
 import kr.or.ddit.db.MybatisUtil;
-
+@Repository("ctgrDao")
 public class CtgrDao implements CtgrDaoI {
 	
 	// select 
@@ -17,6 +19,7 @@ public class CtgrDao implements CtgrDaoI {
 	public List<CtgrVO> selectAllCtgr() {
 		SqlSession sqlSession = MybatisUtil.getSession();
 		List<CtgrVO> ctgrList =  sqlSession.selectList("ctgr.selectAllCtgr");
+		System.out.println(ctgrList.get(0).getCtgr_name());
 		 
 		sqlSession.close();
 		return ctgrList;

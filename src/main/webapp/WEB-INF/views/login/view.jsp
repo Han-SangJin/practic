@@ -25,9 +25,7 @@
 	
 	  
 	<script>   
-		        
-		$(function(){
-			
+		$(function(){ 
 			// remember me cookie 확인
 			if(Cookies.get("REMEMBERME")=="Y"){
 				$("input[type=checkbox]").prop("checked",true);

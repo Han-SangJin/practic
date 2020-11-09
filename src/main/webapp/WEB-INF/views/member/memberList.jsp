@@ -34,7 +34,7 @@ $(document).ready(function(){
 		document.location="/member/view?userid=" + userid;
 	})
 })
-  
+   
 </script>
 
 </head>

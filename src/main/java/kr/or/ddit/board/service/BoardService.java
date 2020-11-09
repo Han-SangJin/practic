@@ -29,7 +29,7 @@ public class BoardService implements BoardServiceI{
 	public BoardService() {
 		
 	}
-	
+	 
 	public BoardService(BoardRepositoryI boardRepository) {
 		this.boardRepository = boardRepository;
 	}

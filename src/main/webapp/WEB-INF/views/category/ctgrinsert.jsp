@@ -9,8 +9,9 @@
     	List<CtgrVO> ctgrList = (List<CtgrVO>) session.getAttribute("ctgrList");
 %>        
 
-		<c:set var="ctgrList" value="<%= ctgrList %>"/>
-
+		<c:set var="ctgrList" value="<%= session.getAttribute("ctgrList") %>"/>
+		ctgrList.get(0).getCtgr_name()
+		
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -30,7 +31,7 @@
       background-color: #f1f1f1;
       height: 100%;
     }  
-    
+     
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
@@ -96,6 +97,7 @@
 </script>
 </head>
 
+
 <title>Jsp</title>
 <!-- 레이아웃 추가 -->
 <%@ include file="../layout/commonLib.jsp" %>
@@ -124,7 +126,7 @@
   
 	<div class="col-sm-8 blog-main">
 		<div class="blog-post">
-				<form id="ctgrfm" action="${pageContext.request.contextPath}/ctgrinsertservlet" method="post">
+					<form id="ctgrfm" action="${pageContext.request.contextPath}/ctgrinsertservlet" method="post">
         <table class="table table-striped">
 				 <tr>  
 				 	<td><h4>카테고리 번호</h4></td>
@@ -158,7 +160,7 @@
 						
 						<td>
 						<select name="use<%= i %>" id="used<%= i %>">
-						
+							
 						
 					    <% if(ctgrList.get(i).getCtgr_use() == 1){ %>
 						<option>사용</option>

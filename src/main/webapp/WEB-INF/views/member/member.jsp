@@ -27,7 +27,7 @@ $(document).ready(function(){
 })  
 </script>
 </head>
-<body>
+<body> 
 	
 	<%@ include file="../layout/header.jsp" %>
 	

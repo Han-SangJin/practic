@@ -19,7 +19,7 @@
 			</map>
 		</property>
 		
-		
+		 
 		<property name="properties">
 			<props>
 				<prop key="jdbc.user">sem</prop>

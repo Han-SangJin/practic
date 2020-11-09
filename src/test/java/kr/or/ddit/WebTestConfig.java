@@ -39,7 +39,7 @@ public class WebTestConfig {
 		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
 	}														// build가 mock 객체를 호출해줌
 	
-	
+	 
 	@Ignore
 	@Test
 	public void test() {

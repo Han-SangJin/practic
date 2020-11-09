@@ -13,5 +13,5 @@
 		<property name="user" value="${jdbc.username}"/>
 		<property name="pass" value="${jdbc.password}"/>
 	</bean>
-	
+	 
 </beans>

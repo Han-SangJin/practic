@@ -15,40 +15,37 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
+
+
 <title>Jsp</title>
 <!-- 레이아웃 추가 -->
-<%@ include file="/WEB-INF/views/layout/commonLib.jsp" %>
+<%@ include file="layout/commonLib.jsp" %>
 </head>
  
-   
+     
 <body>   
 <!-- 상단 네비게이션바 -->
-<%@ include file="/WEB-INF/views/layout/header.jsp" %>
-    
-    
+<%@ include file="layout/header.jsp" %>
+		
+
 <div class="container-fluid">
-		<div class="row">
-		 	 
-		 	   
+<div class="row"> 
+
 <!-- 왼쪽 사이드바 -->
 <div class="col-sm-3 col-md-2 sidebar">
-<%@ include file="/WEB-INF/views/layout/left.jsp" %>
-</div>  
-         
-  
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			  	     
+<%@ include file="layout/left.jsp" %>
 
-<div class="blog-header">
-	<h1 class="blog-title">Main</h1>
-	<p class="lead blog-description">Jsp / Spring.</p>
-</div> 
+</div>  
+
+<div class="col-sm-8 col-md-8  main">
+	<div class="blog-header">
+		<h1 class="blog-title">Category</h1>
+		<p class="lead blog-description">Jsp / CategoryList.</p>
+	</div> 
   
-<div class="row">
- 
 	<div class="col-sm-8 blog-main">
-	       
 		<div class="blog-post">
+				<div class="blog-post">
 			<h2 class="blog-post-title">JSP</h2>
 			<p class="blog-post-meta">
 				2017.10.30, room 201
@@ -69,10 +66,13 @@
 				<li>페이지 모듈화</li>
 			</ul>
 		</div>
-	</div>
-	<!-- /.blog-main -->
-</div>	</div>
 		</div>
+	</div>            
+	<!-- /.blog-main -->
+</div>	
+</div>
 	</div>
+		
 </body>
 </html>
+
