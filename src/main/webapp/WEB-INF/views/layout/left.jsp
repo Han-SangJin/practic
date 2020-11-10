@@ -10,7 +10,7 @@
 		<li class="active"><a href="${pageContext.request.contextPath}/login/unt/main">Main <span class="sr-only">(current)</span></a></li>
 		<li class="active"><a href="${pageContext.request.contextPath}/memberList/process">사용자</a></li>
 		<li class="active"><a href="${pageContext.request.contextPath}/selectAllJobs">jobs</a></li>
-		<li class="active"><a href="${pageContext.request.contextPath}/ctgrList/view">게시판 생성</a></li>
+		<li class="active"><a href="${pageContext.request.contextPath}/category/view">게시판 생성</a></li>
 	
 		<c:set var="ctgrsize" value="${ctgrList.size()-1}"/>
 		 
@@ -20,6 +20,6 @@
 						${ctgrList.get(i).getCtgr_name()}</a></li>
 			</c:if>
 		</c:forEach>
- 
+ 	
 	</ul>
 </body>

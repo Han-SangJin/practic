@@ -29,7 +29,7 @@ public class CtgrDao implements CtgrDaoI {
 	public int insertCtgr(CtgrVO ctgrVo) {
 		SqlSession sqlSession = MybatisUtil.getSession();
 		int insertCnt = 0;
-
+		
 		try{
 			insertCnt = sqlSession.insert("ctgr.insertCtgr", ctgrVo);
 			System.out.println(ctgrVo.getCtgr_name());

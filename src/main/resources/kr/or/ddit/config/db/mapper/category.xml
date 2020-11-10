@@ -15,7 +15,7 @@
 		SELECT * FROM category1 order by ctgr_seq1 desc
    </select> 
    
-<!--    
+   
    <insert id="insertCtgr" parameterType="CtgrVO">
    		INSERT INTO category1 VALUES(ctgr_seq.nextval, #{ctgr_name}, #{ctgr_use})
    </insert>
@@ -24,6 +24,6 @@
    <update id="updateCtgr" parameterType="CtgrVO" >
    		 UPDATE category1 SET ctgr_use = #{ctgr_use} WHERE ctgr_seq1 = #{ctgr_seq1}
    </update> 
-    -->
+   
    
 </mapper> 

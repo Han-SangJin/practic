@@ -14,4 +14,4 @@ public interface CtgrDaoI {
 
 	int updateCtgr(CtgrVO ctgrVo);
 }
- 
+  

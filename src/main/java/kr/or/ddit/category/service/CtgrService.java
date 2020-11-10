@@ -35,7 +35,7 @@ public class CtgrService implements CtgrServiceI {
 	public void setCtgrDao(CtgrDaoI ctgrDao) {
 		this.ctgrDao = ctgrDao;
 	}
-	
+	 
 	
 
 	@Override
@@ -47,7 +47,6 @@ public class CtgrService implements CtgrServiceI {
 	
 	@Override
 	public int insertCtgr(CtgrVO ctgrVo) {
-		SqlSession sqlSession = MybatisUtil.getSession();
 		return ctgrDao.insertCtgr(ctgrVo);
 	}
 

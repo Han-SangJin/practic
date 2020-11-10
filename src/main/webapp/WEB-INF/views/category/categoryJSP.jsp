@@ -10,18 +10,10 @@
 %>        
 
 		<c:set var="ctgrList" value="<%= session.getAttribute("ctgrList") %>"/>
-		ctgrList.get(0).getCtgr_name()
 		
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-   <script src="/js/categoryupdate.js"></script> 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
@@ -59,29 +51,29 @@
 	 var ctgr_seq1 = 0;
 	 var ctgr_use = 0;
 
-	 
+	$("#ctgrList #update").on("click", function(){
+		alert("클릭")
+		// data-userid
+		ctgr_seq1 = $(this).data("ctgrseq1");
+		alert("ctgr_seq1 : " + ctgr_seq1); 
+		//alert($("#idx").val());
+	    // alert($("select[name=use"+ctgeuse+"]").val());
+	    ctgr_use = $("select[name=use"+ctgruse+"]").val();
+	    alert(ctgr_use);
+	  	//$('#ctgrfm').submit();
+		document.location="/category/ctgrUpdate"; 
+		     
+	//	updateCtgr(ctgr_seq1,ctgr_use);
+
+		//location.reload();
+	})	
+}) 
+/* 	 
 	$("#ctgrList tr").on("click",function(){
 		ctgruse = $(this).data("ctgruse");
 		//alert("ctgruse : " + ctgruse); 
 	})
-	   
-	  
-	$("#ctgrList #update").on("click", function(){
-		// data-userid
-		ctgr_seq1 = $(this).data("ctgrseq1");
-		//alert("ctgr_seq1 : " + ctgr_seq1); 
-		//alert($("#idx").val());
-	    // alert($("select[name=use"+ctgeuse+"]").val());
-	    ctgr_use = $("select[name=use"+ctgruse+"]").val();
-	    //alert(ctgr_use);
-	  	//$('#ctgrfm').submit();
-		/* document.location="/member?userid=" + userid; */
-		     
-		updateCtgr(ctgr_seq1,ctgr_use);
-
-		location.reload();
-	})	
-}) 
+	    */
   
 		  
 /* $(function(){
@@ -123,11 +115,14 @@
 		<h1 class="blog-title">Category</h1>
 		<p class="lead blog-description">Jsp / CategoryList.</p>
 	</div> 
-  
+   
 	<div class="col-sm-8 blog-main">
 		<div class="blog-post">
-					<form id="ctgrfm" action="${pageContext.request.contextPath}/ctgrinsertservlet" method="post">
-        <table class="table table-striped">
+		
+		
+		
+        		<table class="table table-striped">
+				<form id="ctgrfm" action="${pageContext.request.contextPath}/category/ctgrInsert" method="post">
 				 <tr>  
 				 	<td><h4>카테고리 번호</h4></td>
 				 	<td><h4>카테고리 이름</h4></td>
@@ -144,23 +139,29 @@
 			        </select></p></td>
 				 	<td><input type="submit"value="생성"></td>
 				 </tr>
-				  
+				 </form>
 				 
+				 
+				 
+				 
+				 <form id="ctgrup" action="${pageContext.request.contextPath}/category/ctgrUpdate" method="post">
 				 <tbody id="ctgrList">
-				   
 				<% 	 
 					int ctgrSize = ctgrList.size();
 					System.out.println(ctgrSize);
 					if(ctgrSize > 0){
 						for(int i=0; i<ctgrSize; i++){
 				%>			 
-					<tr data-ctgruse="<%= i %>">
+					<tr data-ctgrseq1="<%= ctgrList.get(i).getCtgr_seq1() %>">
 						<td><%= ctgrList.get(i).getCtgr_seq1() %></td>
 						<td><%= ctgrList.get(i).getCtgr_name() %></td>
 						
 						<td>
+						<input type="hidden" name="ctseq" value="">
+						<input type="hidden" name="ctuse" value="">
+						
 						<select name="use<%= i %>" id="used<%= i %>">
-							
+						
 						
 					    <% if(ctgrList.get(i).getCtgr_use() == 1){ %>
 						<option>사용</option>
@@ -195,9 +196,13 @@
 					}
 				%>
 				</tbody>
+				</form>
 				
 			</table>
-    		</form>
+    		
+    		
+    		
+    		
 		</div>
 	</div>            
 	<!-- /.blog-main -->

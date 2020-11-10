@@ -14,4 +14,4 @@ public interface CtgrServiceI {
 	
 	int updateCtgr(CtgrVO ctgrVo); 
 }
-  
+   

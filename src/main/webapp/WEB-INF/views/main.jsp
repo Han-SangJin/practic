@@ -39,8 +39,8 @@
 
 <div class="col-sm-8 col-md-8  main">
 	<div class="blog-header">
-		<h1 class="blog-title">Category</h1>
-		<p class="lead blog-description">Jsp / CategoryList.</p>
+		<h1 class="blog-title">Main</h1>
+		<p class="lead blog-description">Jsp / Main.</p>
 	</div> 
   
 	<div class="col-sm-8 blog-main">

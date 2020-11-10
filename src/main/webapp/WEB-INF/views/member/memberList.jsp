@@ -36,27 +36,38 @@ $(document).ready(function(){
 })
    
 </script>
-
 </head>
-<body>
+
+<title>Jsp</title>
+<!-- 레이아웃 추가 -->
+<%@ include file="../layout/commonLib.jsp" %>
+</head>
+ 
+     
+<body>   
 <!-- 상단 네비게이션바 -->
 <%@ include file="../layout/header.jsp" %>
-
+		
 
 <div class="container-fluid">
-		<div class="row">
+<div class="row"> 
 
- 
-<!-- 왼쪽 사이드 바 -->			
+<!-- 왼쪽 사이드바 -->
 <div class="col-sm-3 col-md-2 sidebar">
-  <%@ include file="../layout/left.jsp" %>
-</div><div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				
+<%@ include file="../layout/left.jsp" %>
 
-<div class="row">
+</div>  
+
+<div class="col-sm-8 col-md-8  main">
+	<div class="blog-header">
+		<h1 class="blog-title">Category</h1>
+		<p class="lead blog-description">Jsp / CategoryList.</p>
+	</div> 
+  
 	<div class="col-sm-8 blog-main">
-		<h2 class="sub-header">사용자</h2>
-		<div class="table-responsive">
+		<div class="blog-post">
+		
+			<div class="table-responsive">
 			<table class="table table-striped">
 				 <tr> 
 				 	<td><p>사용자 아이디</p></td>
@@ -93,34 +104,15 @@ $(document).ready(function(){
 				</tbody>
 				
 			</table> 
-		</div>  
 		<a href="${pageContext.request.contextPath}/memberRegist/view" class="btn btn-default pull-right">사용자 등록</a>
+		</div>  
 		
- 	<%-- 	 page : ${pageVo.getpage() }
- 		 pages : ${pages }
- 		memeberList : ${memberList}
-		<div class="text-center">
-			<ul class="pagination">
-				<c:forEach var="i" begin="1" end="${pages }">
-					<c:choose>
-						 
-						<c:when test="${i == page}">
-							<li class="active"><span>${i}</span></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="${pageContext.request.contextPath}/memberList?page=${i}">${i}</a></li>
-							<%=request.getContextPath()%>  =  ${pageContext.request.contextPath }
-						</c:otherwise>	
-					</c:choose>				
-				</c:forEach>
-			</ul>
-		</div> --%>
+		</div>
+	</div>            
+	<!-- /.blog-main -->
+</div>	
 </div>
 	</div>
-		</div>
-	</div>
+		
 </body>
 </html>
-    
-
- 

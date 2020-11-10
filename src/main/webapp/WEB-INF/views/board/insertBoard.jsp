@@ -17,7 +17,7 @@
 <style>
 	.dlabel{
 		display : inline-block; 
-		
+	
 	}
 	#modiBtn{
 		margin-left : 200px;

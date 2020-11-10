@@ -26,14 +26,14 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/js.cookie-2.2.1.min.js"></script>
 <script src="/js/categoryupdate.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js">    
-	$(function(){                 
+	$(function(){                  
 		// remember me cookie 확인
 	 	if(Cookies.get("REMEMBERME")=="Y"){
 			$("input[type=checkbox]").prop("checked",true);
 			//$("input[type=checkbox]").attr("checked","checked");
 			$("#inputEmail").val(Cookies.get("mem_id"))
 			//console.log("체크");
-		}                                                    
+		}                                                     
                                                                       
 		// sign in b버튼이 클릭 되엇을때 이벤크 핸들러
 		$("button").on('click',function(){

@@ -21,7 +21,8 @@ public class BoardRepository implements BoardRepositoryI{
 		else
 			return null;
 	}
-
+	
+	
 	@Override
 	public BoardVO selectBoard(int board_seq1) {
 		// TODO Auto-generated method stub

@@ -29,7 +29,7 @@ public class BoardService implements BoardServiceI{
 	public BoardService() {
 		
 	}
-	 
+	
 	public BoardService(BoardRepositoryI boardRepository) {
 		this.boardRepository = boardRepository;
 	}
@@ -40,6 +40,7 @@ public class BoardService implements BoardServiceI{
 		return boardRepository.getBoard(boardNo);
 	}
 
+	
 	@Override
 	public BoardVO selectBoard(int board_seq1) {
 		// TODO Auto-generated method stub
