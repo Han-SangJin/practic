@@ -1,7 +1,6 @@
 <%@page import="kr.or.ddit.category.model.CtgrVO"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
     
@@ -14,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
+<meta charset="utf-8">
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {height: 1500px}
@@ -44,56 +44,11 @@
     }
     
   </style>
-<script> 
-
- $(document).ready(function(){
-	 var ctgruse = 0;
-	 var ctgr_seq1 = 0;
-	 var ctgr_use = 0;
-
-	$("#ctgrList #update").on("click", function(){
-		alert("클릭")
-		// data-userid
-		ctgr_seq1 = $(this).data("ctgrseq1");
-		alert("ctgr_seq1 : " + ctgr_seq1); 
-		//alert($("#idx").val());
-	    // alert($("select[name=use"+ctgeuse+"]").val());
-	    ctgr_use = $("select[name=use"+ctgruse+"]").val();
-	    alert(ctgr_use);
-	  	//$('#ctgrfm').submit();
-		document.location="/category/ctgrUpdate"; 
-		     
-	//	updateCtgr(ctgr_seq1,ctgr_use);
-
-		//location.reload();
-	})	
-}) 
-/* 	 
-	$("#ctgrList tr").on("click",function(){
-		ctgruse = $(this).data("ctgruse");
-		//alert("ctgruse : " + ctgruse); 
-	})
-	    */
-  
-		  
-/* $(function(){
-
-	var se = document.getElementBuId("used");
-	alert(se)
-	
-	 $("#ctgrList #update").click(function(){
-		var email = $("#used option:selected").text();
-		alert(email)
-	)}; 
-});   */  
-</script>
 </head>
-
 
 <title>Jsp</title>
 <!-- 레이아웃 추가 -->
 <%@ include file="../layout/commonLib.jsp" %>
-</head>
  
      
 <body>   
@@ -121,86 +76,46 @@
 		
 		
 		
-        		<table class="table table-striped">
-				<form id="ctgrfm" action="${pageContext.request.contextPath}/category/ctgrInsert" method="post">
-				 <tr>  
-				 	<td><h4>카테고리 번호</h4></td>
-				 	<td><h4>카테고리 이름</h4></td>
-				 	<td><h4>카테고리 사용여부</h4></td>
-				 	<td><h4>생성/삭제</h4></td>
-				 </tr>
-				 <tr>   
-				 	<td><p> 게시판 이름 : </p></td>
-				 	<td><input type="text" name="ctgr_name" value=""></td>
-				 	<td><p>
-				 	<select name="ctgr_use" id="ctgr_use">
-			      		<option value="1">사용</option>
-			      		<option value="2">미사용</option>
-			        </select></p></td>
-				 	<td><input type="submit"value="생성"></td>
-				 </tr>
-				 </form>
-				 
-				 
-				 
-				 
-				 <form id="ctgrup" action="${pageContext.request.contextPath}/category/ctgrUpdate" method="post">
-				 <tbody id="ctgrList">
-				<% 	 
-					int ctgrSize = ctgrList.size();
-					System.out.println(ctgrSize);
-					if(ctgrSize > 0){
-						for(int i=0; i<ctgrSize; i++){
-				%>			 
-					<tr data-ctgrseq1="<%= ctgrList.get(i).getCtgr_seq1() %>">
-						<td><%= ctgrList.get(i).getCtgr_seq1() %></td>
-						<td><%= ctgrList.get(i).getCtgr_name() %></td>
-						
-						<td>
-						<input type="hidden" name="ctseq" value="">
-						<input type="hidden" name="ctuse" value="">
-						
-						<select name="use<%= i %>" id="used<%= i %>">
-						
-						
-					    <% if(ctgrList.get(i).getCtgr_use() == 1){ %>
-						<option>사용</option>
-					   <%} else if(ctgrList.get(i).getCtgr_use() == 2){ %>
-						<option>미사용</option>
-						<%} %>  
-						
-						 
-						<option value="1">사용</option>
-			      		<option value="2">미사용</option>
-						
-						    <%-- <option value=1 <c:if test="${ctgr_use == 1}">selected</c:if>>사용</option>
-		                    <option value=2 <c:if test="${ctgr_use == 2}">selected</c:if>>미사용</option>  --%>
-		
-						</select>
-						</td>
-						
-						<td>
-						<input id="update" class="update" type="button" value="수정" data-ctgrseq1="<%= ctgrList.get(i).getCtgr_seq1() %>">
-						</td>
-						 
-					</tr>	  
-				  
-				  <% 			
-						}
-					}else{ // 회원정보가 존재하지 않을 경우...
-				  %> 
-					<tr>
-						<td colspan="2">회원정보가 존재하지 않습니다.</td>
-					</tr>
-				<%	
-					}
-				%>
-				</tbody>
+        	<fieldset>
+				<legend> * 게시판 생성</legend>
+				<form action="${pageContext.request.contextPath }/category/ctgrInsert" method="post">
+					<label for="ctgr_name">게시판 이름 : </label>
+					<input type="text" id="ctgr_name" name="ctgr_name" value="${param.ctgr_name }" placeholder="게시판 이름">
+					<input type="submit" value="생성"/>
 				</form>
-				
-			</table>
-    		
-    		
+			</fieldset>
+			<br><br>
+			
+			
+			<fieldset>
+				<legend> * 게시판 목록</legend>
+				<c:forEach var="i" items="${ctgrList }">
+					<form action="${pageContext.request.contextPath }/category/ctgrUpdate">
+						
+						<label>게시판 이름 : </label>
+						<input type="hidden" name="ctgr_seq1" value="${i.ctgr_seq1 }">
+						<input style="border:none" type="text" name="ctgr_name" value="${i.ctgr_name }" readonly>
+						
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<select name="ctgr_use">
+								<c:choose>
+									<c:when test="${i.ctgr_use == 1 }">
+										<option value="1" selected>사용</option>
+										<option value="2">미사용</option>
+									</c:when>
+									<c:otherwise> 
+										<option value="1">사용</option>
+										<option value="2" selected>미사용</option>
+									</c:otherwise>
+								</c:choose>
+							</select>
+							
+						&nbsp;&nbsp;&nbsp;
+						<input type="submit" value="수정"/>
+					</form>
+					<br>
+				</c:forEach>
+			</fieldset>
     		
     		
 		</div>

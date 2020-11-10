@@ -5,7 +5,9 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.or.ddit.member.model.MemberVo" alias="MemberVo"/>
+		<typeAlias type="kr.or.ddit.board.model.BoardVO" alias="BoardVO"/>
 		<typeAlias type="kr.or.ddit.category.model.CtgrVO" alias="CtgrVO"/>
+		<typeAlias type="kr.or.ddit.common.model.PageVO" alias="PageVO"/>
 	</typeAliases>
 
 	
@@ -22,8 +24,10 @@
     </environment>
   </environments>
 	   
+	   
   <mappers>
     <mapper resource="kr/or/ddit/config/db/mapper/member.xml"/>
+ 	<mapper resource="kr/or/ddit/config/db/mapper/board.xml"/>	
     <mapper resource="kr/or/ddit/config/db/mapper/category.xml"/>
   </mappers>
 </configuration>

@@ -12,8 +12,6 @@ public interface BoardServiceI {
 	
 	BoardVO selectBoard(int board_seq1);
 	
-	List<BoardVO> selectAllBoard(int ctgr_seq1);
-	
 	Map<String, Object> selectBoardPageList(PageVO pageVo);
 	
 	int selectBoardTotalCnt(int ctgr_seq1);

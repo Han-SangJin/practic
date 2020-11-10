@@ -24,7 +24,7 @@ public class MybatisUtil {
 			e.printStackTrace();
 		}
 	}
-	
+	 
 		
 	// sqlSessionFactory 객체를 통해 sqlSession 객체를 얻어내는 메소드
 	public static SqlSession getSession() {

@@ -13,8 +13,6 @@ public interface BoardRepositoryI {
 	
 	BoardVO selectBoard(int board_seq1);
 	
-	List<BoardVO> selectAllBoard(int ctgr_seq1);
-	
 	List<BoardVO> selectBoardPageList(SqlSession sqlSession, PageVO pageVo);
 	
 	int selectBoardTotalCnt(SqlSession sqlSession, int ctgr_seq1);

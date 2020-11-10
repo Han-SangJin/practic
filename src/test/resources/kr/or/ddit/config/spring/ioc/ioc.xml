@@ -30,7 +30,7 @@
 	<!-- Dao 불러옴 -->
 	<bean id="boardRepository" class="kr.or.ddit.board.repository.BoardRepository"/>
 
-		
+		 
 	<!-- service 객체를 dao에 연결해줌 DI방식1 (setter이용) -->
 	<bean id="boardService" class="kr.or.ddit.board.service.BoardService">
 		<!-- boardService가 의존하는 boardDao 스프링빈을 setter 메소드를 통해 주입(Dependency Injection) -->

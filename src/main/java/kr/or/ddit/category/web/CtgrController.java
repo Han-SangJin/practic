@@ -1,8 +1,12 @@
 package kr.or.ddit.category.web;
 
+import java.io.UnsupportedEncodingException;
+import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.LoggerFactory;
@@ -31,7 +35,7 @@ public class CtgrController {
 	
 	@RequestMapping(path = "/view", method = RequestMethod.GET)	
 	public String getView(HttpSession session, Model model) {
-		logger.debug("MemberList-Controller.getView()");
+		logger.debug("Category-Controller.getView()");
 		
 		List<CtgrVO> ctgrList = ctgrService.selectAllCtgr();
 		session.setAttribute("ctgrList", ctgrList);
@@ -40,35 +44,31 @@ public class CtgrController {
 	}
 	
 	
-	@RequestMapping(path="/ctgrInsert")							
+	
+	@RequestMapping(path="/ctgrInsert",  method = RequestMethod.POST)							
 	public String ctgrInsert(CtgrVO ctgrVo) {   
+//		HttpServletRequest request
+//		request.setCharacterEncoding("utf-8");
+//		String ctgr_name = request.getParameter("ctgr_name");
+//		CtgrVO ctgrVo = new CtgrVO();
+//		ctgrVo.setCtgr_name(ctgr_name);
+		logger.debug("Category-Controller.ctgrInsert()");
 		
 		// 카테고리 정보 등록
 		int insertCnt = ctgrService.insertCtgr(ctgrVo);
-	
 		return "redirect:/category/view";
 	}
 	
 	
 	
 	@RequestMapping(path="/ctgrUpdate")							
-	public String ctgrUpdate(CtgrVO ctgrVo,String ctseq,String ctuse) {   
-		
-		System.out.println(ctseq);
-		System.out.println(ctuse);
-		
-		//ctgrVo.setCtgr_seq1(Integer.parseInt(ctseq.split(",")[0]));
-		//ctgrVo.setCtgr_use(Integer.parseInt(ctuse.split(",")[2]));
+	public String ctgrUpdate(CtgrVO ctgrVo) {   
+		logger.debug("Category-Controller.ctgrUpdate()");
 		
 		// 카테고리 정보 수정
 		int updateCnt = ctgrService.updateCtgr(ctgrVo);
 		System.out.println("updateCnt : "+ updateCnt);
 		return "redirect:/category/view";
 	}
-	
-	
-	
-	
-	
 	
 }
