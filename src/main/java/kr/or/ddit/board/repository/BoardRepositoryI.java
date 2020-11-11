@@ -9,8 +9,6 @@ import kr.or.ddit.common.model.PageVO;
 
 public interface BoardRepositoryI {
 
-	BoardVO getBoard(int boardNo);
-	
 	BoardVO selectBoard(int board_seq1);
 	
 	List<BoardVO> selectBoardPageList(SqlSession sqlSession, PageVO pageVo);
@@ -24,4 +22,8 @@ public interface BoardRepositoryI {
 	int deleteBoard(int board_seq1);
 	
 	int updateBoard(BoardVO boardVo);
+	
+	
+	
+	BoardVO getBoard(int boardNo);// 지우지 말것
 }

@@ -67,21 +67,11 @@ public class BoardService implements BoardServiceI{
 		SqlSession sqlSession = MybatisUtil.getSession();
 		return boardRepository.selectBoardTotalCnt(sqlSession, ctgr_seq1);
 	}
-	   
-	
-	
-	
-	@Override
-	public BoardVO getBoard(int boardNo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	
 	@Override
 	public BoardVO selectBoard(int board_seq1) {
-		// TODO Auto-generated method stub
-		return null;
+		return boardRepository.selectBoard(board_seq1);
 	}
 
 
@@ -109,5 +99,12 @@ public class BoardService implements BoardServiceI{
 		return 0;
 	}
 
+	
+	
+	// 지우지 말것
+	@Override
+	public BoardVO getBoard(int boardNo) {
+		return boardRepository.getBoard(boardNo);
+	}
 	
 }

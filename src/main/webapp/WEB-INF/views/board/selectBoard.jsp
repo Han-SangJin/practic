@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.dlabel{
+	.label{
 		display : inline-block;
 		margin-left : 50px;
 	}
@@ -70,8 +70,9 @@
 
 <div class="col-sm-8 col-md-8  main">
 	<div class="blog-header">
-		<h1 class="blog-title">Category</h1>
-		<p class="lead blog-description">Jsp / CategoryList.</p>
+		<h1 class="blog-title">Board</h1>
+		
+		<p class="lead blog-description">Jsp / selectBoard.</p>
 	</div> 
   
 	<div class="col-sm-8 blog-main">
@@ -79,29 +80,17 @@
 	
 			
 	<form id="frm" class="form-horizontal" role="form" enctype="multipart/form-data">
-		<%-- <div class="form-group">
-			<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
-			<div class="col-sm-10">
-				<img src="${cp}/profile/${memberVo.filename}"/>
 
-				<img src="${cp}/profileImg?userid=${memberVo.userid}" /><br>
-				<button id="profileDownBtn" type="button" class="btn btn-default">다운로드
-					:${memberVo.realFilename}</button>
-				</a>
-			</div>
-		</div> --%> 
 		<h2>게시판 조회</h2>
-		<c:set scope="request" var="ctgr_seq1" value="<%= request.getParameter("ctgr_seq1") %>"/>
 		<hr>
-		
 		  
 		<div class="boarddiv">
 			<label for="board_seq1" class="dlabel">게시글 번호 : </label>
-			<label class="label">${boardVo.board_seq1}</label>
+			<label class="dlabe">${boardVo.board_seq1}</label>
 			<label for="mem_id" class="dlabel">아이디 : </label>
-			<label class="label">${boardVo.mem_id}</label>
+			<label class="dlabel">${boardVo.mem_id}</label>
 			<label for="board_date" class="dlabel">작성일 : </label>
-			<label class="label">
+			<label class="dlabel">
 				<fmt:formatDate value="${boardVo.board_date}" pattern="yyyy-MM-dd" />
 			</label>
 			<br>
@@ -110,7 +99,7 @@
 		
 		<div class="boarddiv">
 			<label for="board_title" class="dlabel">제목</label>:
-			<label class="label">${boardVo.board_title}</label>
+			<label class="dlabe">${boardVo.board_title}</label>
 			
 				 
 			<c:choose>	
@@ -139,7 +128,7 @@
 		
 		<div id="contdiv" class="boarddiv">
 			<label for="board_cont" class="dlabel">내용</label><br>
-			<label class="label">${boardVo.board_cont}</label>
+			<label class="dlabe">${boardVo.getBoard_cont()}</label>
 		</div>
 		<hr>
 
@@ -148,16 +137,16 @@
 		
 		<div class="boarddiv" style="display:none">
 			<label for="parent_seq1" class="dlabel">부모의 시퀸스 값 : </label>
-			<label class="label">${boardVo.parent_seq1}</label>
+			<label class="dlabe">${boardVo.parent_seq1}</label>
 			
 			<label for="board_dep" class="dlabel">깊이 : </label>
-			<label class="label">${boardVo.board_dep}</label>
+			<label class="dlabe">${boardVo.board_dep}</label>
 			
 			<label for="board_del" class="dlabel">삭제여부 : </label>
-			<label class="label">${boardVo.board_del}</label>
+			<label class="dlabe">${boardVo.board_del}</label>
 			
 			<label for="ctgr_seq1" class="dlabel">카테고리 : </label>
-			<label class="label">${boardVo.ctgr_seq1}</label>
+			<label class="dlabe">${boardVo.ctgr_seq1}</label>
 		</div>
 	</form>
 
@@ -305,10 +294,10 @@
 	</div>
 		<div>
 			<label for="parent_seq1" class="dlabel">레벨 : </label>
-			<label class="label">${boardVo.parent_seq1}</label>
+			<label class="dlabe">${boardVo.parent_seq1}</label>
 				
 			<label for="board_dep" class="dlabel">원글 번호 : </label>
-			<label class="label">${boardVo.board_dep}</label>
+			<label class="dlabe">${boardVo.board_dep}</label>
 		</div>
 <br><br><br><br><br><br>
 <hr>

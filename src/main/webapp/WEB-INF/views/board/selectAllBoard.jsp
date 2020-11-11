@@ -96,7 +96,7 @@
 		
 		<c:choose>
 			<c:when test="${pageSize > 0}">
-				<c:forEach var="i" begin="0" end="${pageSize-1}">
+				<c:forEach var="i" begin="0" end="${selectAllBoard.size()-1}">
 					<tr id="cont">
 						<c:choose>
 							<c:when test="${ selectAllBoard.get(i).getBoard_del() == 2 }">
@@ -107,7 +107,7 @@
 							</c:when>
 							<c:otherwise>
 								<td>${ selectAllBoard.get(i).getBoard_seq1() }</td>
-								<td class="title"><a href="/board/boardselect?board_seq1=${selectAllBoard.get(i).getBoard_seq1()}">${selectAllBoard.get(i).getBoard_title()}</a></td>
+								<td class="title"><a href="/board/selectBoard?board_seq1=${selectAllBoard.get(i).getBoard_seq1()}">${selectAllBoard.get(i).getBoard_title()}</a></td>
 								<td class="date">${ selectAllBoard.get(i).getBoard_date() }</td>
 								<td class="id">${ selectAllBoard.get(i).getMem_id() }</td>
 							</c:otherwise>	
@@ -125,19 +125,19 @@
 		<ul class="pagination">
 			<c:choose>
 				<c:when test="${1 < page}">
-					<li><a href="/board/boardselectall?page=1&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">◀◀</a></li>
+					<li><a href="/board/boardselectall?page=1&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">◀◀</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">◀◀</a></li>
+					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">◀◀</a></li>
 				</c:otherwise>
 			</c:choose>	
 		
 			<c:choose>
 				<c:when test="${1 < page}">
-					<li><a href="/board/boardselectall?page=${page-1}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">◀</a></li>
+					<li><a href="/board/boardselectall?page=${page-1}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">◀</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">◀</a></li>
+					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">◀</a></li>
 				</c:otherwise>
 			</c:choose>	
 			
@@ -147,27 +147,27 @@
 							<li class="active"><span>${i}</span></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="/board/boardselectall?page=${i}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">${i}</a></li>
+							<li><a href="/board/boardselectall?page=${i}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">${i}</a></li>
 						</c:otherwise>
 							  
 					</c:choose>				
 				</c:forEach>
-			
+				
 			<c:choose>
 				<c:when test="${page < pages}">
-					<li><a href="/board/boardselectall?page=${page+1}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">▶</a></li>
+					<li><a href="/board/boardselectall?page=${page+1}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">▶</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">▶</a></li>
+					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">▶</a></li>
 				</c:otherwise>
 			</c:choose>	
 			
 			<c:choose>
 				<c:when test="${page < pages}">
-					<li><a href="/board/boardselectall?page=${pages}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">▶▶</a></li>
+					<li><a href="/board/boardselectall?page=${pages}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">▶▶</a></li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pages}">▶▶</a></li>
+					<li><a href="/board/boardselectall?page=${page}&ctgr_seq1=${ctgr_seq1}&pageSize=${pageSize}">▶▶</a></li>
 				</c:otherwise>
 			</c:choose>	
 		</ul>
