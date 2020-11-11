@@ -1,7 +1,6 @@
 package kr.or.ddit.category.web;
 
 import java.io.UnsupportedEncodingException;
-import java.net.http.HttpRequest;
 import java.util.List;
 
 import javax.annotation.Resource;

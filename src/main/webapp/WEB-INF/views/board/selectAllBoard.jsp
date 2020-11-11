@@ -74,7 +74,7 @@
 		<div class="blog-post">
 				
 				
-				<a href="/boardinsertservlet?ctgr_seq1=${ctgr_seq1}&parent_seq1=0"><input type="button" value="새로운 글 등록"></a>
+	<a href="/boardinsertservlet?ctgr_seq1=${ctgr_seq1}&parent_seq1=0"><input type="button" value="새로운 글 등록"></a>
 	 
 	int boardsize : ${ boardsize }
  	page : ${ page }
@@ -84,8 +84,6 @@
  	
  	<c:set var="ctgr_seq1" value="${ctgr_seq1}" scope="session"/>
  	
-
- 	 
 	<br><br>
 
 	<table border="1">
@@ -95,10 +93,10 @@
 				<td>작성일</td>
 				<td>아이디</td>
 			</tr>
-		 
+		
 		<c:choose>
-			<c:when test="${boardsize > 0}">
-				<c:forEach var="i" begin="0" end="${boardsize-1}">
+			<c:when test="${pageSize > 0}">
+				<c:forEach var="i" begin="0" end="${pageSize-1}">
 					<tr id="cont">
 						<c:choose>
 							<c:when test="${ selectAllBoard.get(i).getBoard_del() == 2 }">

@@ -37,12 +37,14 @@ private static final long serialVersionUID = 1L;
 	
 	
 	@RequestMapping(path = "/boardselectall", method = RequestMethod.GET)	
-	public String boardSelectAll(HttpSession session, Model model, BoardVO boardVo, PageVO pageVo, int ctgr_seq1,
+	public String boardSelectAll(HttpSession session, Model model, BoardVO boardVo, int ctgr_seq1,
 									@RequestParam(name="page", required = true, defaultValue = "1") String page,
 									@RequestParam(name="pageSize", required = true, defaultValue = "10") String pageSize){
 		logger.debug("Board-Controller.boardselectall()");
+		PageVO pageVo = new PageVO();
 		pageVo.setPage(Integer.parseInt(page));
 		pageVo.setPageSize(Integer.parseInt(pageSize));
+		pageVo.setCtgr_seq1(ctgr_seq1);
 		
 		Map<String, Object> map = boardService.selectBoardPageList(pageVo);
 		logger.debug("boardselectall() - map : " + map);

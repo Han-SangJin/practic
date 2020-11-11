@@ -54,7 +54,7 @@ public class BoardService implements BoardServiceI{
 		 
 		int totalCnt = boardRepository.selectBoardTotalCnt(sqlSession, ctgr_seq1);
 		System.out.println("totalCnt : " +totalCnt);
-		int pages = (int)Math.ceil((double)totalCnt/5);
+		int pages = (int)Math.ceil((double)totalCnt/10);
 		map.put("pages", pages);
 		
 		sqlSession.close();
